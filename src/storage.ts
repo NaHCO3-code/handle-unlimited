@@ -16,6 +16,8 @@ export const useNumberTone = useStorage('handle-number-tone', false)
 export const useCheckAssist = useStorage('handle-check-assist', false)
 export const useStrictMode = useStorage('handle-strict', false)
 export const acceptCollecting = useStorage('handle-accept-collecting', true)
+export const unlimitedMode = useStorage('handle-unlimited-mode', true)
+export const answerSeed = useStorage<string>('handle-answer-seed', `${Date.now()}`)
 
 export const meta = computed<TriesMeta>({
   get() {

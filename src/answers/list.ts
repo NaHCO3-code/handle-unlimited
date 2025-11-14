@@ -41,6 +41,7 @@
  *
  */
 
+import { IdiomsList } from '../logic/idioms'
 import { seedShuffle } from './utils'
 
 function prepare<T>(len: number, arr: T[]) {
@@ -520,23 +521,26 @@ export const _2023_FEB = prepare(28, seedShuffle([
   ['滔滔不绝', '不'],
 ], '2023-02'))
 
-export const answers: string[][] = [
-  ..._PRE,
-  ..._2022_JAN,
-  ..._2022_FEB,
-  ..._2022_MARCH,
-  ..._2022_APRIL,
-  ..._2022_MAY,
-  ..._2022_JUNE,
-  ..._2022_JULY,
-  ..._2022_AUG,
-  ..._2022_SEP,
-  ..._2022_OCT,
-  ..._2022_NOV,
-  ..._2022_DEC,
-  ..._2023_JAN,
-  ..._2023_FEB,
-]
+// export const answers: string[][] = [
+//   ..._PRE,
+//   ..._2022_JAN,
+//   ..._2022_FEB,
+//   ..._2022_MARCH,
+//   ..._2022_APRIL,
+//   ..._2022_MAY,
+//   ..._2022_JUNE,
+//   ..._2022_JULY,
+//   ..._2022_AUG,
+//   ..._2022_SEP,
+//   ..._2022_OCT,
+//   ..._2022_NOV,
+//   ..._2022_DEC,
+//   ..._2023_JAN,
+//   ..._2023_FEB,
+// ]
+//
+
+export const answers: string[][] = seedShuffle(IdiomsList.map(t => [t, t[0]]))
 
 // duplicated check
 if (import.meta.hot) {

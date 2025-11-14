@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { filterNonChineseChars } from '@hankit/tools'
 import { answer, dayNo, isDev, isFailed, isFinished, showCheatSheet, showFailed, showHelp, showHint } from '~/state'
-import { markStart, meta, tries, useNoHint, useStrictMode } from '~/storage'
+import { answerSeed, markStart, meta, tries, useNoHint, useStrictMode } from '~/storage'
 import { t } from '~/i18n'
 import { TRIES_LIMIT, WORD_LENGTH, checkValidIdiom } from '~/logic'
 
@@ -32,6 +32,16 @@ function reset() {
   meta.value = {}
   input.value = ''
   inputValue.value = ''
+}
+function newGame() {
+  tries.value = []
+  meta.value = {}
+  input.value = ''
+  inputValue.value = ''
+  answerSeed.value = `${Date.now()}`
+}
+function giveUp() {
+  meta.value.answer = true
 }
 function handleInput(e: Event) {
   const el = (e.target! as HTMLInputElement)
@@ -117,15 +127,24 @@ watchEffect(() => {
               </span>
             </div>
           </div>
-          <button
-            mt3
-            btn p="x6 y2"
-            :disabled="input.length !== WORD_LENGTH"
-            @click="enter"
-          >
-            {{ t('ok-spaced') }}
-          </button>
-          <div v-if="tries.length > 4 && !isFailed" op50>
+          <div mt3>
+            <button
+              btn p="x6 y2"
+              :disabled="input.length !== WORD_LENGTH"
+              @click="enter"
+            >
+              {{ t('ok-spaced') }}
+            </button>
+            <button
+              ml-3
+              btn p="x6 y2"
+              @click="giveUp"
+            >
+              放 弃
+            </button>
+          </div>
+
+          <div v-if="!isFailed" op50>
             {{ t('tries-rest', TRIES_LIMIT - tries.length) }}
           </div>
           <button v-if="isFailed" square-btn @click="showFailed = true">
@@ -145,6 +164,13 @@ watchEffect(() => {
       <Transition name="fade-in">
         <div v-if="isFinishedDelay && isFinished">
           <ResultFooter />
+          <button
+            mx3
+            btn p="x5 y2"
+            @click="newGame"
+          >
+            下一关
+          </button>
           <Countdown />
         </div>
       </Transition>

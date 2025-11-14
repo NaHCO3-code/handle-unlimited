@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { isDark, showDashboard, showHelp, showSettings, useMask } from '~/state'
-import { gamesCount } from '~/storage'
+import { gamesCount, unlimitedMode } from '~/storage'
 
 const toggleDark = useToggle(isDark)
 const toggleSettings = useToggle(showSettings)
 const toggleDashboard = useToggle(showDashboard)
+const toggleUnlimited = useToggle(unlimitedMode)
 
 function openHelp() {
   showHelp.value = true
@@ -32,6 +33,10 @@ function openHelp() {
         </button>
         <button icon-btn mx2 @click="toggleDark()">
           <div i-carbon-sun dark:i-carbon-moon />
+        </button>
+        <button icon-btn mx2 @click="toggleUnlimited()">
+          <div v-if="unlimitedMode" i-carbon-infinity-symbol />
+          <div v-else i-carbon-event-schedule />
         </button>
       </div>
     </div>
