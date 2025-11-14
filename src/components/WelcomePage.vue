@@ -72,8 +72,6 @@ const final = computed(() => ({ py: 'uo', zy: 'ㄨㄛ', sp: 'o' }[inputMode.valu
     <Settings :lite="true" />
 
     <div h-1px w-10 border="b base" m4 />
-
-    <div h-1px w-10 border="b base" m4 />
     <button text-primary op80 hover:op100 @click="variantButton()">
       {{ t('other-variants') }}
     </button>
@@ -83,10 +81,16 @@ const final = computed(() => ({ py: 'uo', zy: 'ㄨㄛ', sp: 'o' }[inputMode.valu
       <a op50 hover:op80 href="https://twitter.com/antfu7" target="_blank">Anthony</a>
       <span op40> & </span>
       <a op50 hover:op80 href="https://twitter.com/iiiiiiines_____" target="_blank">Inès</a>
+      <span op40>, modified by </span>
+      <a op50 hover:op80 href="https://surfish.top" target="_blank">Surfish</a>
     </div>
+    <a href="https://github.com/NaHCO3-code/handle-unlimited" target="_blank" flex="~ center gap-1" op50 hover:op80>
+      <div i-carbon-logo-github />
+      Source Code (Current Version)
+    </a>
     <a href="https://github.com/antfu/handle" target="_blank" flex="~ center gap-1" op50 hover:op80>
       <div i-carbon-logo-github />
-      Source Code
+      Source Code (Origional Version)
     </a>
   </div>
 </template>
