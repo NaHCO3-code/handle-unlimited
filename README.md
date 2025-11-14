@@ -1,15 +1,8 @@
 ![](./public/og.png)
 
-# 汉兜 Handle
+# 汉兜 Handle(Unlimited)
 
-A Chinese Hanzi variation of [Wordle](https://www.powerlanguage.co.uk/wordle/). 汉字 Wordle.
-
-[handle.antfu.me](https://handle.antfu.me)
-
-请勿剧透！PLEASE DO NOT SPOIL
-
-> **Note**
-> 汉兜的答案库至 2023 年 2 月 28 日为止将**不再更新**；后序的题目将从过往一年的题目中随机抽取。仓库以 MIT 协议开放，在注明原始仓库与作者的条件下，欢迎 Fork 与修改。感谢大家的对汉兜的支持与喜爱。
+A Chinese Hanzi variation of [Wordle](https://www.powerlanguage.co.uk/wordle/). 汉字 Wordle，支持无限次数游玩和每日一题两种模式。
 
 ## Development Setup
 
